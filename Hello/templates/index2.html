@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Forms</title>
+</head>
+
+<body>
+    <h2>This is HTML forms </h2>
+    <form action="backend.php"> <!-- to store the form data at backend using action attribute-->
+
+        <label for="name"> Name</label> <!-- to write by directly just clicking on the label -->
+        <div>
+            <input type="text" name="myName" id="name"> <!-- lable's for and id must be same-->
+        </div>
+        <br>
+        
+        <br>
+        <div> 
+            Email: <input type="email" name="myEmail"> <!-- It will store the email at your backend under the name as myEmail-->
+        </div>
+
+        <br>
+        
+        <br>
+        
+        <br>
+        
+        <br>
+        <div>
+            Gender: Male <input type="radio" name="myGender"> Female <input type="radio" name="myGender">
+            Other <input type="radio" name="myGender">
+        </div>    <!-- When same type as checkbox or radio you can only select one -->
+
+        <br>
+        <div>
+            Write about yourself: <br><textarea name="myText" cols="90" rows="10"></textarea>
+        </div>  <!-- It will store the email at your backend under the name as myText-->
+
+        <br>
+        
+        <br>
+
+        <div>
+            <input type="submit" value="Submit Now"> <!-- type = submit (will submit at backend)-->
+            <input type="reset" value="Reset Now">  <!-- type = reset (will reset from backend)-->
+        </div>
+    </form>
+</body>
+
+</html>
