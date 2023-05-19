@@ -4,6 +4,7 @@ from Home.models import Contact      # importing the class contact from our mode
 from Home.models import LogIns
 from django.contrib import messages
 from .serials import *
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index(request):
@@ -29,31 +30,21 @@ def contact(request):
     return render(request, 'contact.html')
     # return HttpResponse("This is Contact Page")
   
-    
+@csrf_exempt
 def LogIn(request):
     if request.method == 'POST':
         username = request.POST.get('username')  # dictionary
         password = request.POST.get('password')  # dictionary
-        try:
-            LogIns.objects.filter(username="amanshukla4194",password="ashking@148")
-            messages.success(request, "Your LogIn is Successful!")
-            return render(request, 'index.html')
-        except Exception as e:
-            res=str(e)
-            messages.success(request, res)
-            # return HttpResponse(e)
-            # return HttpResponse("The username or password is incorrect")
 
+    q=LogIns.objects.filter(username=username,password=password)
+    print(q)
+    if q.count()==0 :
+        messages.success(request, "Your username or password is incorrect!")
+        return render(request,"index.html")
+    messages.success(request, "Your LogIn is Successful!")
+    return render(request, 'index.html')
 
 
 def LOGIN(request):
     return render(request, 'real.html')
-
-    
-    
-# def clean_password(self):
-#         valid = self.user.check_password(self.cleaned_data['password'])
-#         if not valid:
-#             raise forms.ValidationError("Password Incorrect")
-#         return valid
 
