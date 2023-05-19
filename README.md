@@ -1,1 +1,1 @@
-# My-First-Django-Website
+# IceCream Product View Website
